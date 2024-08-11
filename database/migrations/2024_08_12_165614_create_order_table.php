@@ -10,10 +10,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id('orderID'); 
-            $table->foreignId('productID')->constrained('products', 'productID')->onDelete('cascade');
-            $table->string('orderName');
+            $table->foreignId('productID')->constrained('products', 'productID')->onDelete('cascade');     
+            $table->foreignId('customerID')->constrained('customers','customerID')->onDelete('cascade');       
             $table->string('orderStatus'); 
-            $table->text('orderAddress'); 
             $table->float('orderPrice'); 
             $table->timestamps();
         });
