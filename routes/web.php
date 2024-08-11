@@ -14,3 +14,9 @@ Route::patch('/upload/{id}', [CoffeeController::class, 'update']);
 Route::get('/upload',[CoffeeController::class,'create']);
 Route::post('/upload',[CoffeeController::class,'store']);
 Route::get('/order',[CoffeeController::class,'order']);
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
