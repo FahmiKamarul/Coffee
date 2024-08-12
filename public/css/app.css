@@ -3,6 +3,9 @@ body{
     margin:0; 
     height:100vh;
 }
+:root{
+    font-family: 'Lato';
+}
 nav div{
     display:flex;
     position:sticky;
@@ -52,7 +55,7 @@ ul li{
     margin-right:100px;
 }
 .logo{
-    
+    font-family: 'Times New Roman', Times, serif;
     margin:auto;
     margin-left:100px;
 }
@@ -82,4 +85,38 @@ ul li{
     background-color:#F4F4F4;
     padding:10px;
     text-align:center;
+}
+input{
+    background-color: #F4F4F4;
+    color:black;
+    width:300px;
+    height:25px;
+    border-radius:8px;
+    border:none;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:30px;
+    gap:20px;
+}
+.rememberme{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.rememberme input{
+    width:auto;
+}
+.dash{
+    display:inline-block;
+    padding:10px 20px;
+    background-color:#3764D2 ;
+    color: white;
+    text-align: center;
+    border-radius:8px;
+    width:auto;
+    
 }

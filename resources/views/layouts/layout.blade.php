@@ -9,6 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
@@ -29,7 +30,7 @@
             </li></a>
             <a href="/orderManagement" class="{{ request()->is('orderManagement*') ? 'active' : '' }}"><li>
                 <img src="/img/1413908-removebg-preview.png" alt="">
-                Order Management
+                Manage Order
             </li></a>
             <a href="/orderManagement"><li>
                 <img src="/img/3126647-removebg-preview.png" alt="">
@@ -44,11 +45,17 @@
                 Transaction
             </li></a>
         </ul>
-        <a href="/login">
-            <button class="user-button">
-                {{ Auth::user()->name }}
-            </button>
-        </a>
+        <div class="admin-nav">
+            <span>Admin</span>
+            
+            <a href="/login">
+                
+                <button class="user-button">
+                    {{ Auth::user()->name }}
+                </button>
+                
+            </a>
+        </div>
     </nav>
     <div class="content">
         @yield('content')

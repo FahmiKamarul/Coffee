@@ -11,6 +11,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url('css/app.css') }}">
     <!-- Scripts -->
@@ -38,11 +39,7 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
-                                <li class="logbutton">
-                                    <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                            
                         @else
                             <li class="">
                                 <a id="" class="" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -60,6 +57,11 @@
                                         @csrf
                                     </form>
                                 </div>
+                                @auth
+                                    <li class="logbutton">
+                                        <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endauth
                             </li>
                         @endguest
                     </ul>

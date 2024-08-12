@@ -36,16 +36,14 @@
                 </div>
             </div>
 
-            <div class="">
-                <div class="">
-                    <div class="">
-                        <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <div class="rememberme">
+                
+                <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                        <label class="" for="remember">
-                            {{ __('Remember Me') }}
-                        </label>
-                    </div>
-                </div>
+                <label class="" for="remember">
+                    {{ __('Remember Me') }}
+                </label>
+                    
             </div>
 
             <div class="">
