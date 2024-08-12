@@ -44,7 +44,11 @@
                 Transaction
             </li></a>
         </ul>
-        
+        <a href="/login">
+            <button class="user-button">
+                {{ Auth::user()->name }}
+            </button>
+        </a>
     </nav>
     <div class="content">
         @yield('content')

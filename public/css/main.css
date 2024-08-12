@@ -12,7 +12,7 @@ nav{
     display:block;
     width:170px;
     background-color: white;
-
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding:50px;
     position:sticky;
 
@@ -362,4 +362,16 @@ li:hover{
     height:40px;
     width:auto;
     margin:10px 0;
+}
+.user-button{
+    background-color:white;
+    border:3px solid grey;
+    border-radius:8px;
+    margin-top:100px;
+    padding:10px;
+    transition:0.8s;
+}
+.user-button:hover{
+    background-color: #464BD3;
+    color:white;
 }
