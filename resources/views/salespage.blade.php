@@ -36,9 +36,11 @@
                 <li>
                     <img src="/img/109-1092659_search-icon-small-png-clipart-removebg-preview.png" alt="">
                 </li>
-                <li>
-                    <img src="/img/3126647-removebg-preview.png" alt="">
-                </li>
+                <a href="/login">
+                    <li>
+                        <img src="/img/istockphoto-1332100919-612x612-removebg-preview.png" alt="">
+                    </li>
+                </a>
                 <li>
                     <img src="/img/1077035-removebg-preview.png" alt="">
                 </li>
