@@ -38,8 +38,11 @@
                                     <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
-                            
+                            @if (Route::has('register'))
+                                <li class="logbutton">
+                                    <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
                         @else
                             <li class="">
                                 <a id="" class="" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

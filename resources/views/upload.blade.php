@@ -12,7 +12,7 @@
             <div class="photo">
                 
                 <div class="photoPreview">
-                    <img id="imagePreview" src="/img/8230211-removebg-preview.png" alt="Image Preview" style=" max-width: 100px; max-height:100px;margin:auto;">
+                    <img id="imagePreview" src="/img/8230211-removebg-preview.png" alt="Image Preview" style=" width: 100px;  height:100px;margin:auto;">
                 </div>
                 <div >
                     <input type="file" id="image" name="image" accept="image/*" required onchange="previewImage(event)">
