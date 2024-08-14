@@ -44,29 +44,34 @@
                                 </li>
                             @endif
                         @else
-                            <li class="">
-                                <a id="" class="" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="dropdownbutton">
+                                <div class="namebutton">
+                                    
                                     {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="" aria-labelledby="navbarDropdown">
-                                    <a class="" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                    <img src="/img/1123247-200-removebg-preview.png" alt="" >
                                 </div>
-                                @auth
-                                    <li class="logbutton">
+                                <ul class="dropdown">
+                                    <li>
+                                        <a class="" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        
+                                    </li>
+                                    
+                                    <li >
                                         <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
-                                @endauth
+                                   
+                                    
+                                </ul>
+                                
                             </li>
                         @endguest
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </div>
             </div>

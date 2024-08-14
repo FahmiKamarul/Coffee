@@ -48,7 +48,7 @@
         <div class="admin-nav">
             <span>Admin</span>
             
-            <a href="/login">
+            <a href="/login" >
                 
                 <button class="user-button">
                     {{ Auth::user()->name }}
