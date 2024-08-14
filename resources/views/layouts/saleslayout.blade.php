@@ -49,5 +49,5 @@
     </header>
         @yield('mainpage')
 <body>  
-
+@yield('scripts')
 </html>

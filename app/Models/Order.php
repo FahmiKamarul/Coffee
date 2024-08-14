@@ -9,5 +9,7 @@ class Order extends Model
 {
     protected $table = 'orders';
     protected $primaryKey="orderID";
+    public $incrementing = true;
+    protected $fillable = ['id', 'orderStatus'];
     use HasFactory;
 }

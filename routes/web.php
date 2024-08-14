@@ -9,6 +9,7 @@ Route::get('/', [CoffeeController::class,'order']);
 Route::get('/output',[CoffeeController::class,'show']);
 
 Route::get('/order',[CoffeeController::class,'order'])->middleware('customer');
+Route::post('/order',[CoffeeController::class,'submitorder'])->middleware('customer');
 Route::get('/profile',function(){
     return(view('customer.profile'));
 });

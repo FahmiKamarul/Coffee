@@ -114,4 +114,31 @@ class CoffeeController extends Controller
     
         return view('profile');
     }
+    public function submitorder(Request $request)
+    {
+        // Create a new order
+        $order = \App\Models\Order::create([
+            'id' => auth()->id(), // Assuming you want to associate this order with the currently authenticated user
+            'orderStatus' => 'pending', // Set default status or handle as needed
+        ]);
+
+        // Decode the JSON cart data
+        $cartData = json_decode($request->input('cartData'), true);
+
+        // Validate cart data
+        if (!is_array($cartData)) {
+            return redirect()->back()->withErrors('Invalid cart data.');
+        }
+
+        // Save each order product to the database
+        foreach ($cartData as $item) {
+            \App\Models\OrderProduct::updateOrCreate(
+                ['orderID' => $order->orderID, 'productID' => $item['productID']],
+                ['quantity' => $item['quantity']]
+            );
+        }
+
+        return view('salespage');
+    }
+
 }
