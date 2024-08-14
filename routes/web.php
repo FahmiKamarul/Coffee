@@ -23,4 +23,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::middleware(['auth', 'customer'])->group(function () {
+    Route::get('profile',[CoffeeController::class,'profile']);
+    Route::patch('profile',[CoffeeController::class,'updateprofile']);
+});

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class CoffeeController extends Controller
 {   
@@ -94,5 +95,23 @@ class CoffeeController extends Controller
         $products = Product::all();
         return view('salespage', compact('products'));
     }
+    function profile(){
+        return view('profile');
+    }
+    function updateProfile(Request $request) {
+        $request->validate([
+            'customerName' => 'required|string|max:255',
+            'customerEmail' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
+            'customerAddress' => 'nullable|string|max:500',
+        ]);
     
+        // Update the user's profile
+        $user = Auth::user();  // Correct way to get the currently authenticated user
+        $user->name = $request->input('customerName');
+        $user->email = $request->input('customerEmail');
+        $user->address = $request->input('customerAddress');
+        $user->save();
+    
+        return view('profile');
+    }
 }

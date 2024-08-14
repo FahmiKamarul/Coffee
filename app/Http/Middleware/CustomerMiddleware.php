@@ -16,6 +16,6 @@ class CustomerMiddleware
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
