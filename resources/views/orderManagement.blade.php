@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container" style="width:1100px;height:600px;">
-    <div class="header"style="height:auto;">
+<div class="container" style="width:1100px;height:600px;padding:0;">
+    <div class="header"style="height:auto;padding:20px;">
         <div style="display:flex;flex-direction:row;">
             <div style="display:flex;flex-direction:column; ">
                 <h2 style="margin-bottom:5px;">Order</h2>
@@ -40,10 +40,27 @@
     @foreach($orders as $order)
             
         <div class="orderline">
-            {{$order->orderID}}
-        
+            <div class="orderline-orderID">
+                {{$order->orderID}}
+            </div>
+            <div class="orderline-orderName">
+                {{ $order->user->name }}
+            </div>
+            <div class="orderline-orderAddress">
+                {{$order->user->address}}
+
+            </div>
+            <div class="orderline-time">
+                {{$order->created_at}}
+            </div>
+            <div class="orderline-status">
+                {{$order->orderStatus}}
+            </div>
+            <div><a href="{{ \Illuminate\Support\Str::afterLast(request()->path(), '/') }}/{{$order->orderID}}" style="text-decoration:none;"><div class="managebutton" >manage</div></a></div>
         </div>
     @endforeach
+    
 </div>
 
+@yield('ordercontent')
 @endsection

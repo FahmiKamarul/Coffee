@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="/img/file.png" type="image/x-icon"/>
     <title>Kopi Coffee</title>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="stylesheet" id="twentyfifteen-fonts-css" href="https://fonts.googleapis.com/css?family=Quicksand%3A300%2C400%2C700%7CJosefin%2BSans%3A400%2C400italic%2C700%2C700italic%2C600%2C600italic%7CFredoka+One&amp;subset=latin%2Clatin-ext" type="text/css" media="all">

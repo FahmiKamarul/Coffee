@@ -208,7 +208,7 @@ select{
 .header{
     position:sticky;
     background-color: white;
-
+    box-sizing: border-box;
     top:0;
 }
 .status-ball {
@@ -358,13 +358,22 @@ li:hover{
     color:#464BD3;
 }
 .orderline{
+    display:flex;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color:white;
     border:#F4F4F4;
     border-radius:12px;
     height:40px;
+    box-sizing: border-box;
+    margin:10px 20px;
     width:auto;
-    margin:10px 0;
+    justify-content: space-evenly;
+}
+.orderline >*{
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .user-button{
     background-color:#F4F4F4;
@@ -381,4 +390,12 @@ li:hover{
     margin-top:70px;
     display:flex;
     flex-direction: column;
+}
+.productorder{
+    display:flex;
+    flex-direction:column;
+}
+.productorder img{
+    width:60px;
+    height:60px;
 }

@@ -16,7 +16,8 @@ Route::get('/profile',function(){
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/upload/{id}',[CoffeeController::class,'showID']);
     Route::get('/orderManagement',[CoffeeController::class,'ordermanage']);
-    Route::get('/orderManagement/{id}',[CoffeeController::class,'ordermanage']);
+    Route::get('/orderManagement/{button}/{id}',[CoffeeController::class,'ordermanageuser']);
+    Route::get('/orderManagement/{button}',[CoffeeController::class,'ordermanage']);
     Route::patch('/upload/{id}', [CoffeeController::class, 'update']);
     Route::get('/upload',[CoffeeController::class,'create']);
     Route::post('/upload',[CoffeeController::class,'store']);

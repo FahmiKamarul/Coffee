@@ -137,8 +137,13 @@ class CoffeeController extends Controller
                 ['quantity' => $item['quantity']]
             );
         }
-
-        return view('salespage');
+        
+        return redirect()->back();
+    }
+    public function ordermanageuser($button,$id){
+        $ord = Order::find($id);
+        $orders= Order::all();
+        return view('ordercontents',['ord' => $ord, 'orders' => $orders]);
     }
 
 }

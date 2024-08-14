@@ -86,17 +86,36 @@
                     <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;">
                     <p>Name: ${item.name}</p>
                     <p>Price: $${item.price}</p>
-                    <p>Category: ${item.category}</p>
-                    <p>Description: ${item.description}</p>
-                    <p>Dairy Free: ${item.dairyFree}</p>
-                    <p>Quantity: ${item.quantity}</p>
+                    <div class="quantity">Quantity: 
+                        <div >
+                            <button type="button" class="btn decrease-quantity">-</button>
+                            ${item.quantity}
+                            <button type="button" class="btn increase-quantity">+</button>
+                        </div>
+                    </div>
+                    <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
                     <button type="button" class="remove-product">Remove</button>
                 </div>
             `;
 
             cartItems.appendChild(productItem);
 
-            // Remove product functionality
+            // Increase quantity
+            productItem.querySelector('.increase-quantity').addEventListener('click', function() {
+                cart[item.productID].quantity += 1;
+                updateCartDisplay();
+            });
+
+            // Decrease quantity
+            productItem.querySelector('.decrease-quantity').addEventListener('click', function() {
+                cart[item.productID].quantity -= 1;
+                if (cart[item.productID].quantity <= 0) {
+                    delete cart[item.productID];
+                }
+                updateCartDisplay();
+            });
+
+            // Remove product
             productItem.querySelector('.remove-product').addEventListener('click', function() {
                 delete cart[item.productID];
                 updateCartDisplay();
