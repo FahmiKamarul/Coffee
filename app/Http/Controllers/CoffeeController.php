@@ -10,8 +10,18 @@ use Illuminate\Support\Facades\Auth;
 class CoffeeController extends Controller
 {   
     public function ordermanage(){
-        $orders= Order::all();
-        return view('orderManagement',compact('orders'));
+        $status = request()->segment(2); // Assuming the second segment is the status
+        if ($status && in_array($status, ['all-orders', 'dispatch', 'pending', 'completed'])) {
+            if ($status === 'all-orders') {
+                $orders = Order::all();
+            } else {
+                $orders = Order::where('orderStatus', ucfirst($status))->get(); // Match status
+            }
+        } else {
+            $orders = Order::all(); // Fallback in case of incorrect status
+        }
+
+        return view('orderManagement', compact('orders'));
     }
 
     public function showID($productID){
@@ -95,8 +105,12 @@ class CoffeeController extends Controller
         $products = Product::all();
         return view('salespage', compact('products'));
     }
-    function profile(){
-        return view('profile');
+    public function profile()
+    {
+        
+        $orders = Auth::user()->orders; 
+
+        return view('profile', compact('orders'));
     }
     function updateProfile(Request $request) {
         $request->validate([
@@ -143,6 +157,17 @@ class CoffeeController extends Controller
     public function ordermanageuser($button,$id){
         $ord = Order::find($id);
         $orders= Order::all();
+        $status = request()->segment(2); // Assuming the second segment is the status
+        if ($status && in_array($status, ['all-orders', 'dispatch', 'pending', 'completed'])) {
+            if ($status === 'all-orders') {
+                $orders = Order::all();
+            } else {
+                $orders = Order::where('orderStatus', ucfirst($status))->get(); // Match status
+            }
+        } else {
+            $orders = Order::all(); // Fallback in case of incorrect status
+        }
+
         return view('ordercontents',['ord' => $ord, 'orders' => $orders]);
     }
 

@@ -25,15 +25,25 @@
 </button>
 
 <div class="popup-container" id="popupContainer">
-    <div class="popup-content">
+    <div class="popup-content"style="padding:0;">
         <span class="close-btn" id="closePopup">&times;</span>
         <div class="heading">All Items</div>
-        <form method="POST" action="/order" enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" id="cartData" name="cartData">
-            <div id="cartItems"></div>
-            <input type="submit" value="Submit">
-        </form> 
+        <div style="padding:10px;">
+            <div class="cartItem" style="background-color:#F4F4F4;padding:0px 10px;">
+                <p>image</p>
+                <p>Name</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Total Price</p>
+                <p></p>
+            </div>
+            <form method="POST" action="/order" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" id="cartData" name="cartData">
+                <div id="cartItems"></div>
+                <input type="submit" value="Submit">
+            </form> 
+        </div>
     </div>
 </div>
 
@@ -83,18 +93,20 @@
 
             productItem.innerHTML = `
                 <div class="cartItem">
-                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;">
-                    <p>Name: ${item.name}</p>
-                    <p>Price: $${item.price}</p>
-                    <div class="quantity">Quantity: 
+                    <div>
+                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;">
+                    </div>
+                    <p>${item.name}</p>
+                    <p>$${item.price}</p>
+                    <div class="quantity"> 
                         <div >
                             <button type="button" class="btn decrease-quantity">-</button>
                             ${item.quantity}
                             <button type="button" class="btn increase-quantity">+</button>
                         </div>
                     </div>
-                    <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
-                    <button type="button" class="remove-product">Remove</button>
+                    <p>${(item.price * item.quantity).toFixed(2)}</p>
+                    <button type="button" class="remove-product btn">Remove</button>
                 </div>
             `;
 

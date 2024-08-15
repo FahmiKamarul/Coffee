@@ -225,6 +225,7 @@ select{
     background-color:red;
 }
 .managebutton{
+    display:flex;
     background-color: #3764D2;
     margin:0;
     width:auto;
@@ -233,7 +234,7 @@ select{
     border-radius: 8px;
     transition: transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
+    justify-content: center;
 }
 .managebutton:hover{
     cursor: pointer;
@@ -339,15 +340,17 @@ ul a{
     background-color: rgb(193,208,245);
     color:#464BD3;
 }
-.access-bar{
-    display:flex;flex-direction:row;width:auto;background-color:#F4F4F4;height:auto;border-radius:8px;margin-top:10px;
-    padding:10px;
+.access-bar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
+    gap: 10px; /* Add spacing between columns */
+    align-items: center; /* Vertically align content */
+    padding:10px; /* Optional: add padding */
+    box-sizing: border-box;
+    background-color:#F4F4F4;height:auto;border-radius:8px;margin-top:10px;
+    
 }
-.access-bar div{
-    text-align: center;
-    align-items: center;
-    width:auto;
-}
+
 
 .navigation-bar a.active li {
     background-color: #3764D2;
@@ -358,7 +361,12 @@ li:hover{
     color:#464BD3;
 }
 .orderline{
-    display:flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
+    gap: 10px; /* Add spacing between columns */
+    align-items: center; /* Vertically align content */
+    padding:10px; /* Optional: add padding */
+    box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color:white;
     border:#F4F4F4;
@@ -368,13 +376,9 @@ li:hover{
     margin:10px 20px;
     width:auto;
     justify-content: space-evenly;
+    height:auto;
 }
-.orderline >*{
-    display:flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
+
 .user-button{
     background-color:#F4F4F4;
     border:none;

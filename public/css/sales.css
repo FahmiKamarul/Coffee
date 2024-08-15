@@ -94,7 +94,7 @@ li img{
     height: 40px;
 }
 .container{
-    displaY:flex;
+    display:flex;
     flex-direction: column;
     width:550px;
     height:400px;
@@ -184,13 +184,11 @@ input[type="submit"]{
 
 .popup-content {
     background-color: white;
-    width:550px;
-    height:400px;
+    width:700px;
+    height:500px;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow-y:auto;
@@ -214,23 +212,31 @@ input[type="submit"]{
     height:auto;
 }
 .cartItem{
-    margin-top:5px;
-    display:flex;
-    flex-direction:row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
+    gap: 10px; /* Add spacing between columns */
+    align-items: center; /* Vertically align content */
+    padding:10px; /* Optional: add padding */
+    box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    align-items: center;
+    background-color:white;
+    margin-top:5px;
     justify-content: center;
-    padding:2px;
 }
+
 img{
+    align-self: center;
     border-radius: 12px;
+    align-items: center;
 }
 .btn{
     display:flex;
     flex-direction: row;
     width:auto;
     height:auto;
+    margin:2px;
+    text-align: center;
+    justify-content: center;
 }
 .quantity{
     display:flex;
@@ -243,4 +249,29 @@ img{
     flex-direction:row;
     align-items: center;
     height:20px;
+}
+.orderline{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 10px; /* Add spacing between columns */
+    align-items: center; /* Vertically align content */
+    padding:10px; /* Optional: add padding */
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color:white;
+    margin-top:10px;
+    justify-content: center;
+    border-radius: 8px;
+}
+.generatebutton{
+    margin:0;
+    background-color:#F4F4F4;
+    color:black;
+    border-radius:8px;
+    padding:8px;
+    border:none;
+    height:40px;
+    width:100px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }

@@ -14,10 +14,12 @@
 
     <header>
         <nav>
+            <a href="/order" style="text-decoration:none;">
             <div class="main-logo">
                 <img src="/img/1600w-AkT-50lhy8M.webp" alt="hello">
                 <span>KOPI COFFEE</span>
             </div>
+            </a>
             <ul>
                 <li>
                     Home
@@ -47,7 +49,7 @@
             </ul>
         </nav>
     </header>
-        @yield('mainpage')
+    @yield('mainpage')
 <body>  
 @yield('scripts')
 </html>

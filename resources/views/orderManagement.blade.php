@@ -2,25 +2,24 @@
 
 @section('content')
 <div class="container" style="width:1100px;height:600px;padding:0;">
-    <div class="header"style="height:auto;padding:20px;">
+    <div class="header" style="height:auto;padding:20px;">
         <div style="display:flex;flex-direction:row;">
-            <div style="display:flex;flex-direction:column; ">
+            <div style="display:flex;flex-direction:column;">
                 <h2 style="margin-bottom:5px;">Order</h2>
-                orders found
+                {{$orders->count()}} orders found
             </div>
             <div class="icon"> 
-                
                 <div class="searchHolder" style="display:flex;flex-direction:row;">
-                    <input type="text" name="" placeholder="Search..."id="searchHolder" >
-                    <img src="/img/109-1092659_search-icon-small-png-clipart-removebg-preview.png" alt="name"style="width:15px;height:15px;margin:7.5px;">
+                    <input type="text" name="" placeholder="Search..." id="searchHolder">
+                    <img src="/img/109-1092659_search-icon-small-png-clipart-removebg-preview.png" alt="name" style="width:15px;height:15px;margin:7.5px;">
                 </div>
                 <div>
-                    <img src="/img/3119338-removebg-preview.png"style="width:20px;height:20px;margin:5px;" alt="">
+                    <img src="/img/3119338-removebg-preview.png" style="width:20px;height:20px;margin:5px;" alt="">
                 </div>
             </div>
         </div>
         <div>
-            <div style="display:flex;flex-direction:row; margin-top:10px;"class="accessible">
+            <div style="display:flex;flex-direction:row; margin-top:10px;" class="accessible">
                 <a href="/orderManagement/all-orders" class="{{ request()->is('orderManagement/all-orders*') ? 'active' : '' }}"><div>All Order</div></a>
                 <a href="/orderManagement/dispatch" class="{{ request()->is('orderManagement/dispatch*') ? 'active' : '' }}"><div>Dispatch</div></a>
                 <a href="/orderManagement/pending" class="{{ request()->is('orderManagement/pending*') ? 'active' : '' }}"><div>Pending</div></a>
@@ -28,14 +27,15 @@
             </div>
         </div>
         <div class="access-bar">
-            <div style="margin-left:5px;">ID</div>
-            <div style="margin-left:30px;">Name</div>
-            <div style="margin-left:30px;">Address</div>
-            <div style="margin-left:30px;">Date</div>
-            <div style="margin-left:30px;">Price</div>
-            <div style="margin-left:30px;">Status</div>
-            <div style="margin-left:30px;">Action</div>
+            <div>ID</div>
+            <div>Name</div>
+            <div>Address</div>
+            <div>Date</div>
+            <div>Price</div>
+            <div>Status</div>
+            <div><span style="margin-left:13px;">Action</span></div>
         </div>
+
     </div>
     @foreach($orders as $order)
             
@@ -48,15 +48,18 @@
             </div>
             <div class="orderline-orderAddress">
                 {{$order->user->address}}
-
             </div>
+            
             <div class="orderline-time">
                 {{$order->created_at}}
+            </div>
+            <div class="orderline-orderPrice">
+                RM{{ number_format($order->total_price, 2) }}
             </div>
             <div class="orderline-status">
                 {{$order->orderStatus}}
             </div>
-            <div><a href="{{ \Illuminate\Support\Str::afterLast(request()->path(), '/') }}/{{$order->orderID}}" style="text-decoration:none;"><div class="managebutton" >manage</div></a></div>
+            <div><a href="{{ \Illuminate\Support\Str::afterLast(request()->path(), '/') }}/{{$order->orderID}}" style="text-decoration:none;"><div class="managebutton" style="padding:5px;width: 60px;">manage</div></a></div>
         </div>
     @endforeach
     
