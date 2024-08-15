@@ -9,16 +9,15 @@ class OrderProduct extends Model
 {
     use HasFactory;
 
-    protected $table = 'orderProducts'; // Ensure this matches your migration
+    protected $table = 'orderProducts'; 
 
-    // Allow mass assignment for these fields
+    
     protected $fillable = [
         'orderID',
         'productID',
         'quantity'
     ];
 
-    // Optional: Define relationships if needed
     public function order()
     {
         return $this->belongsTo(Order::class, 'orderID');

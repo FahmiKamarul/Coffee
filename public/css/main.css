@@ -343,9 +343,9 @@ ul a{
 .access-bar {
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
-    gap: 10px; /* Add spacing between columns */
-    align-items: center; /* Vertically align content */
-    padding:10px; /* Optional: add padding */
+    gap: 10px; 
+    align-items: center; 
+    padding:10px; 
     box-sizing: border-box;
     background-color:#F4F4F4;height:auto;border-radius:8px;margin-top:10px;
     
@@ -363,9 +363,9 @@ li:hover{
 .orderline{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 1fr 1fr 1fr;
-    gap: 10px; /* Add spacing between columns */
-    align-items: center; /* Vertically align content */
-    padding:10px; /* Optional: add padding */
+    gap: 10px;
+    align-items: center;
+    padding:10px;
     box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color:white;
@@ -402,4 +402,15 @@ li:hover{
 .productorder img{
     width:60px;
     height:60px;
+}
+.allcustomers{
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 2fr;
+    gap: 10px;
+    align-items: center; 
+    padding:10px; 
+    box-sizing: border-box;
+    background-color:white;height:auto;border-radius:8px;margin-top:10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

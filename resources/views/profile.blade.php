@@ -73,7 +73,11 @@
                 <div>{{$order->orderStatus}}</div>
                 <div>RM{{ number_format($order->total_price, 2) }}</div>
                 <div></div>
-                <button class="generatebutton">generate</button>
+                <button class="generatebutton">
+                    <a href="{{ url('/profile/' . $order->orderID . '/receipt') }}" style="text-decoration: none; color: inherit;">
+                        Generate
+                    </a>
+                </button>
             </div>
             @endforeach
         </div>

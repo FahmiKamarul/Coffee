@@ -31,7 +31,7 @@ class User extends Authenticatable
         ];
     }
 
-    // Define the relationship with the Order model
+    
     public function orders()
     {
         return $this->hasMany(Order::class, 'id');

@@ -51,10 +51,10 @@
 
 @section('scripts')
 <script>
-    // Store cart items
+    
     const cart = {};
 
-    // Function to add or update a product in the cart
+    
     function addProductToCart(productID, name, price, image, description, category, dairyFree, quantity) {
         if (!cart[productID]) {
             cart[productID] = {
@@ -74,7 +74,7 @@
         updateCartDisplay();
     }
 
-    // Function to serialize the cart data into a JSON string
+    
     function serializeCartData() {
         return JSON.stringify(Object.values(cart).map(item => ({
             productID: item.productID,
@@ -82,7 +82,7 @@
         })));
     }
 
-    // Function to update cart display and hidden input field
+    
     function updateCartDisplay() {
         const cartItems = document.getElementById('cartItems');
         cartItems.innerHTML = '';
@@ -112,13 +112,13 @@
 
             cartItems.appendChild(productItem);
 
-            // Increase quantity
+            
             productItem.querySelector('.increase-quantity').addEventListener('click', function() {
                 cart[item.productID].quantity += 1;
                 updateCartDisplay();
             });
 
-            // Decrease quantity
+            
             productItem.querySelector('.decrease-quantity').addEventListener('click', function() {
                 cart[item.productID].quantity -= 1;
                 if (cart[item.productID].quantity <= 0) {
@@ -127,28 +127,28 @@
                 updateCartDisplay();
             });
 
-            // Remove product
+            
             productItem.querySelector('.remove-product').addEventListener('click', function() {
                 delete cart[item.productID];
                 updateCartDisplay();
             });
         });
 
-        // Update hidden input with serialized cart data
+        
         document.getElementById('cartData').value = serializeCartData();
     }
 
-    // Event listener to open the popup
+    
     document.querySelector('.cart-icon').addEventListener('click', function() {
         document.getElementById('popupContainer').style.display = 'block';
     });
 
-    // Event listener to close the popup
+    
     document.getElementById('closePopup').addEventListener('click', function() {
         document.getElementById('popupContainer').style.display = 'none';
     });
 
-    // Event listeners to add products to the cart when a product is clicked
+    
     document.querySelectorAll('.add-to-cart').forEach(function(button) {
         button.addEventListener('click', function() {
             const productID = this.getAttribute('data-id');

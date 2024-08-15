@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table='products';
-    protected $primaryKey = 'productID';
     use HasFactory;
+
+    protected $table = 'products';
+    protected $primaryKey = 'productID';
+
     public function orderProducts()
     {
         return $this->hasMany(OrderProduct::class, 'productID', 'productID');

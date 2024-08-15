@@ -14,17 +14,25 @@ class Order extends Model
     public $incrementing = true;
     protected $fillable = ['id', 'orderStatus'];
 
-    // Define the relationship with the User model
+    
     public function user()
     {
         return $this->belongsTo(User::class, 'id');
     }
 
-    // Define the relationship with OrderProduct
+    
     public function orderProducts()
     {
         return $this->hasMany(OrderProduct::class, 'orderID', 'orderID');
     }
+
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'orderProducts', 'orderID', 'productID')
+                    ->withPivot('quantity');
+    }
+
     public function getTotalPriceAttribute()
     {
         return $this->orderProducts->sum(function($orderProduct) {

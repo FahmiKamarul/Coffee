@@ -32,7 +32,7 @@
                 <img src="/img/1413908-removebg-preview.png" alt="">
                 Manage Order
             </li></a>
-            <a href="/orderManagement"><li>
+            <a href="/customer"><li>
                 <img src="/img/3126647-removebg-preview.png" alt="">
                 Customer
             </li></a>

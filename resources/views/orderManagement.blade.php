@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container" style="width:1100px;height:600px;padding:0;">
-    <div class="header" style="height:auto;padding:20px;">
+    <div class="header" style="height:auto;padding:20px;padding-bottom: 0;">
         <div style="display:flex;flex-direction:row;">
             <div style="display:flex;flex-direction:column;">
                 <h2 style="margin-bottom:5px;">Order</h2>

@@ -5,20 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use PDF;
+use Illuminate\Support\Facades\Storage;
 
 class CoffeeController extends Controller
 {   
     public function ordermanage(){
-        $status = request()->segment(2); // Assuming the second segment is the status
+        $status = request()->segment(2); 
         if ($status && in_array($status, ['all-orders', 'dispatch', 'pending', 'completed'])) {
             if ($status === 'all-orders') {
                 $orders = Order::all();
             } else {
-                $orders = Order::where('orderStatus', ucfirst($status))->get(); // Match status
+                $orders = Order::where('orderStatus', ucfirst($status))->get(); 
             }
         } else {
-            $orders = Order::all(); // Fallback in case of incorrect status
+            $orders = Order::all(); 
         }
 
         return view('orderManagement', compact('orders'));
@@ -119,8 +122,8 @@ class CoffeeController extends Controller
             'customerAddress' => 'nullable|string|max:500',
         ]);
     
-        // Update the user's profile
-        $user = Auth::user();  // Correct way to get the currently authenticated user
+        
+        $user = Auth::user(); 
         $user->name = $request->input('customerName');
         $user->email = $request->input('customerEmail');
         $user->address = $request->input('customerAddress');
@@ -130,21 +133,21 @@ class CoffeeController extends Controller
     }
     public function submitorder(Request $request)
     {
-        // Create a new order
+        
         $order = \App\Models\Order::create([
-            'id' => auth()->id(), // Assuming you want to associate this order with the currently authenticated user
-            'orderStatus' => 'pending', // Set default status or handle as needed
+            'id' => auth()->id(), 
+            'orderStatus' => 'pending',
         ]);
 
-        // Decode the JSON cart data
+        
         $cartData = json_decode($request->input('cartData'), true);
 
-        // Validate cart data
+        
         if (!is_array($cartData)) {
             return redirect()->back()->withErrors('Invalid cart data.');
         }
 
-        // Save each order product to the database
+        
         foreach ($cartData as $item) {
             \App\Models\OrderProduct::updateOrCreate(
                 ['orderID' => $order->orderID, 'productID' => $item['productID']],
@@ -157,18 +160,40 @@ class CoffeeController extends Controller
     public function ordermanageuser($button,$id){
         $ord = Order::find($id);
         $orders= Order::all();
-        $status = request()->segment(2); // Assuming the second segment is the status
+        $status = request()->segment(2); 
         if ($status && in_array($status, ['all-orders', 'dispatch', 'pending', 'completed'])) {
             if ($status === 'all-orders') {
                 $orders = Order::all();
             } else {
-                $orders = Order::where('orderStatus', ucfirst($status))->get(); // Match status
+                $orders = Order::where('orderStatus', ucfirst($status))->get();
             }
         } else {
-            $orders = Order::all(); // Fallback in case of incorrect status
+            $orders = Order::all(); 
         }
 
         return view('ordercontents',['ord' => $ord, 'orders' => $orders]);
     }
+    public function generateReceipt($orderId)
+    {
+        
+        $order = Order::with('products')->findOrFail($orderId);
 
+        
+        $data = [
+            'order' => $order,
+            'products' => $order->products,
+        ];
+
+        
+        $pdf = PDF::loadView('receipt', $data);
+
+       
+
+        
+        return $pdf->download('order_' . $orderId . '_receipt.pdf');
+    }
+    public function allcustomer(){
+        $customers = User::where('role', 'customer')->get();
+        return view('customer',compact('customers'));
+    }
 }
