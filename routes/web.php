@@ -25,6 +25,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/customer',[CoffeeController::class,'allcustomer']);
 });
 Auth::routes();
+Route::put('/orderManagement/{button}', [CoffeeController::class, 'updateStatus'])->name('orders.updateStatus');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'customer'])->group(function () {

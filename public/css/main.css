@@ -396,8 +396,15 @@ li:hover{
     flex-direction: column;
 }
 .productorder{
-    display:flex;
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    gap:10px;
+    align-items:center;
+    padding:10px;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.2); 
+    height:auto;border-radius:8px;margin-top:10px;
 }
 .productorder img{
     width:60px;
@@ -413,4 +420,16 @@ li:hover{
     box-sizing: border-box;
     background-color:white;height:auto;border-radius:8px;margin-top:10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.heading{
+    background-color:#F4F4F4;
+    padding:10px;
+    text-align:center;
+    box-sizing: border-box;
+}
+.orderline-status{
+    width:auto;
+}
+.orderline-status select{
+    width:100px;
 }

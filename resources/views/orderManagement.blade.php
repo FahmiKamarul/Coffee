@@ -32,7 +32,7 @@
             <div>Address</div>
             <div>Date</div>
             <div>Price</div>
-            <div>Status</div>
+            <div><span style="margin-left:20px;">Status</span></div>
             <div><span style="margin-left:13px;">Action</span></div>
         </div>
 
@@ -57,7 +57,15 @@
                 RM{{ number_format($order->total_price, 2) }}
             </div>
             <div class="orderline-status">
-                {{$order->orderStatus}}
+                <form action="{{ route('orders.updateStatus', $order->orderID) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <select name="orderStatus" onchange="this.form.submit()">
+                        <option value="pending" {{ $order->orderStatus == 'pending' ? 'selected' : '' }}>Pending</option>
+                        <option value="dispatch" {{ $order->orderStatus == 'dispatch' ? 'selected' : '' }}>Dispatch</option>
+                        <option value="completed" {{ $order->orderStatus == 'completed' ? 'selected' : '' }}>Completed</option>
+                    </select>
+                </form>
             </div>
             <div><a href="{{ \Illuminate\Support\Str::afterLast(request()->path(), '/') }}/{{$order->orderID}}" style="text-decoration:none;"><div class="managebutton" style="padding:5px;width: 60px;">manage</div></a></div>
         </div>

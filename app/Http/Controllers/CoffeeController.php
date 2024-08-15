@@ -196,4 +196,21 @@ class CoffeeController extends Controller
         $customers = User::where('role', 'customer')->get();
         return view('customer',compact('customers'));
     }
+    public function updateStatus(Request $request,$orderID)
+    {
+        
+        $request->validate([
+            'orderStatus' => 'required|in:pending,dispatch,completed',
+        ]);
+
+        
+        $order = Order::findOrFail($orderID);
+
+        
+        $order->orderStatus = $request->input('orderStatus');
+        $order->save();
+
+        
+        return redirect()->back();
+    }
 }
