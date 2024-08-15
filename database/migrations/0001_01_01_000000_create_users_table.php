@@ -22,6 +22,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
@@ -37,6 +38,14 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        DB::table('users')->insert([
+            'name' => 'Admin User',
+            'role' => 'admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password123'), 
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**
