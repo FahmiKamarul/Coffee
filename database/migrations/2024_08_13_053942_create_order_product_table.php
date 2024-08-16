@@ -27,6 +27,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orderProduct');
+        // Drop the dependent table (orderProducts) first
+        Schema::dropIfExists('orderProducts');
+
+        // Then drop the parent table (orders)
+        Schema::dropIfExists('orders');
     }
 };
