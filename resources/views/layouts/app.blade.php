@@ -44,7 +44,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="dropdownbutton">
+                            <div class="dropdownbutton">
                                 <div class="namebutton">
                                     
                                     {{ Auth::user()->name }}
@@ -67,7 +67,7 @@
                                     
                                 </ul>
                                 
-                            </li>
+                            </div>
                         @endguest
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

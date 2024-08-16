@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container" style="width:700px">
-    <div class="header" style="height:auto;padding:20px;">
+    <div class="header" style="height:auto;padding:20px;padding-bottom:0;">
         <h2>Customers</h2>
     </div>
     <div class="allcustomers"style="background-color:#F4F4F4;">
