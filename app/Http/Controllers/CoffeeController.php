@@ -110,12 +110,12 @@ class CoffeeController extends Controller
     }
     public function profile()
     {
-        
-        $orders = Auth::user()->orders; 
+        $orders = Auth::user()->orders()->with('products')->get();
 
         return view('profile', compact('orders'));
     }
     function updateProfile(Request $request) {
+        $orders = Auth::user()->orders()->with('products')->get();
         $request->validate([
             'customerName' => 'required|string|max:255',
             'customerEmail' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
@@ -129,7 +129,7 @@ class CoffeeController extends Controller
         $user->address = $request->input('customerAddress');
         $user->save();
     
-        return view('profile');
+        return view('profile',compact('orders'));
     }
     public function submitorder(Request $request)
     {

@@ -27,7 +27,8 @@
                     {{ $product->productName }}
                     </div>
                     <div>
-                    {{ $orderProduct->quantity }}
+                    
+                    <span style="margin-left:20px;">{{ $orderProduct->quantity }}</span>
                     </div>
                     <div>RM{{number_format( $product->productPrice * $orderProduct->quantity,2) }} </div>
                 </div>

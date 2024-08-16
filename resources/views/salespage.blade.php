@@ -1,6 +1,29 @@
 @extends('layouts.saleslayout')
 
 @section('mainpage')
+<div class="popup-container" id="popupContainer">
+    <div class="popup-content"style="padding:0;">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <div class="heading">All Items</div>
+        <div style="padding:10px;">
+            <div class="cartItem" style="background-color:#F4F4F4;padding:0px 10px;">
+                <p>image</p>
+                <p>Name</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Total Price</p>
+                <p></p>
+            </div>
+            <form method="POST" action="/order" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" id="cartData" name="cartData">
+                <div id="cartItems"></div>
+                <input type="submit" value="Submit">
+            </form> 
+        </div>
+    </div>
+</div>
+
 <span style="background-color:grey;display: flex; font-size: 30px; width: 100%; justify-content: center; align-items: center; text-align: center;">
     Select Item to Buy
 </span>
@@ -24,28 +47,6 @@
     <img src="/img/1413908-removebg-preview.png" alt="">
 </button>
 
-<div class="popup-container" id="popupContainer">
-    <div class="popup-content"style="padding:0;">
-        <span class="close-btn" id="closePopup">&times;</span>
-        <div class="heading">All Items</div>
-        <div style="padding:10px;">
-            <div class="cartItem" style="background-color:#F4F4F4;padding:0px 10px;">
-                <p>image</p>
-                <p>Name</p>
-                <p>Price</p>
-                <p>Quantity</p>
-                <p>Total Price</p>
-                <p></p>
-            </div>
-            <form method="POST" action="/order" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" id="cartData" name="cartData">
-                <div id="cartItems"></div>
-                <input type="submit" value="Submit">
-            </form> 
-        </div>
-    </div>
-</div>
 
 @endsection
 

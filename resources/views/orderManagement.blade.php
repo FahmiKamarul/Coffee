@@ -29,9 +29,9 @@
         <div class="access-bar">
             <div>ID</div>
             <div>Name</div>
-            <div>Address</div>
-            <div>Date</div>
-            <div>Price</div>
+            <div><span style="margin-left:40px;">Address</span></div>
+            <div><span style="margin-left:40px;">Date</span></div>
+            <div><span style="margin-left:12px;">Price</span></div>
             <div><span style="margin-left:20px;">Status</span></div>
             <div><span style="margin-left:13px;">Action</span></div>
         </div>
