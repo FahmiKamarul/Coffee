@@ -35,7 +35,7 @@
                     @enderror
                 </div>
             </div>
-            <div>
+            <div class="alignitem">
                 <label for="customerEmail">{{ __('Email Address') }}</label>
                 <div>
                     <input id="customerEmail" type="email" name="customerEmail" value="{{ Auth::user()->email }}" required>
@@ -46,7 +46,7 @@
                     @enderror
                 </div>
             </div>
-            <div>
+            <div class="alignitem">
                 <label for="customerAddress">{{ __('Address') }}</label>
                 <div>
                     <input id="customerAddress" type="text" name="customerAddress" value="{{ Auth::user()->address }}">
@@ -75,6 +75,20 @@
     <div class="container">
         <div class="heading">All Orders</div>
         <div style="padding:10px;">
+            <div class="orderline" style="background-color:#F4F4F4">
+                <div>
+                    Status
+                </div>
+                <div>
+                    Total Price
+                </div>
+                <div>
+                    <span style="margin-left:33px;">Item</span>
+                </div>
+                <div>
+                    <span style="margin-left:23px;">Receipt</span>
+                </div>
+            </div>
             @foreach($orders as $order)
             <div class="orderline">
                 <div>{{ $order->orderStatus }}</div>

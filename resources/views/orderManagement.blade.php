@@ -67,6 +67,7 @@
                     </select>
                 </form>
             </div>
+            
             <div><a href="{{ \Illuminate\Support\Str::afterLast(request()->path(), '/') }}/{{$order->orderID}}" style="text-decoration:none;"><div class="managebutton" style="padding:5px;width: 60px;">manage</div></a></div>
         </div>
     @endforeach

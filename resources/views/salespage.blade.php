@@ -27,6 +27,16 @@
 <span style="background-color:grey;display: flex; font-size: 30px; width: 100%; justify-content: center; align-items: center; text-align: center;">
     Select Item to Buy
 </span>
+@if (session('error'))
+<div class="container" style="padding:20px;height:auto;">
+    <div class="alert alert-danger">
+        <span class="close-btn" id="closeError">&times;</span>
+        {{ session('error') }}
+    </div>
+</div>
+@endif
+
+
 <div class="selection">
     @foreach($products as $product)
     <button class="add-to-cart" 
@@ -163,5 +173,17 @@
             addProductToCart(productID, name, price, image, description, category, dairyFree, quantity);
         });
     });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const closeErrorBtn = document.getElementById('closeError');
+
+        if (closeErrorBtn) {
+            closeErrorBtn.addEventListener('click', function() {
+                // Hide the error message container
+                this.closest('.container').style.display = 'none';
+            });
+        }
+    });
+
 </script>
 @endsection

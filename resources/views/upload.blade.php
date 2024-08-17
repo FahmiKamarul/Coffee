@@ -32,8 +32,8 @@
                 <div>
                     <label for="category">Category:</label>
                     <select id="category" name="category" required>
-                        <option value="latte">Latte</option>
-                        <option value="coffee">Coffee</option>
+                        <option value="drink">Drink</option>
+                        <option value="dessert">Dessert</option>
                     </select>
                 </div>
 
@@ -98,8 +98,8 @@
                 <label for="beverage" style="padding-left:10px;">Type:</label >
                 <select id="beverage" name="beverage" style="width:100px;">
                     <option value="all">All</option>
-                    <option value="latte">Latte</option>
-                    <option value="coffee">Coffee</option>
+                    <option value="drink">Drink</option>
+                    <option value="dessert">Desert</option>
                 </select>
 
             </div>

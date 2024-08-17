@@ -188,3 +188,14 @@ form{
     opacity: 1;
     transform: translateY(0);
 }
+.submit{
+
+    background-color:#F4F4F4;
+    border-radius: 8px;
+    padding:5px;
+    border-color: #f4f4f443;
+}
+.alignitem{
+    display: flex;
+    flex-direction: column;
+}

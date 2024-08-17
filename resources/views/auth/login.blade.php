@@ -11,7 +11,7 @@
             <div class="">
                 <label for="email" class="">{{ __('Email Address') }}</label>
 
-                <div class="">
+                <div class="alignitem">
                     <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                     @error('email')
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="alignitem">
                 <label for="password" class="">{{ __('Password') }}</label>
 
                 <div class="">
@@ -48,7 +48,7 @@
 
             <div class="">
                 <div class="">
-                    <button type="submit" class="">
+                    <button type="submit" class="submit">
                         {{ __('Login') }}
                     </button>
 

@@ -184,7 +184,6 @@ class CoffeeController extends Controller
             'products' => $order->products,
         ];
 
-        
         $pdf = PDF::loadView('receipt', $data);
 
        
