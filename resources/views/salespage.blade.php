@@ -39,6 +39,7 @@
 
 <div class="selection">
     @foreach($products as $product)
+
     <button class="add-to-cart" 
             data-id="{{ $product->productID }}"
             data-name="{{ $product->productName }}" 

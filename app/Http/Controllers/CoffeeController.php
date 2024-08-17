@@ -105,7 +105,7 @@ class CoffeeController extends Controller
         return view('upload', compact('products'));
     }
     function order() {
-        $products = Product::all();
+        $products = Product::where('productActive', 1)->get();
         return view('salespage', compact('products'));
     }
     public function profile()
