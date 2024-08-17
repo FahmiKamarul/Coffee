@@ -1,4 +1,4 @@
-Coffee Website
+# Coffee Website
 A full-fledged Café website that handles orders, customer registration, product management, and transactions.
 
 Built With
