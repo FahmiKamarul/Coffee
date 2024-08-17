@@ -4,7 +4,7 @@ A full-fledged Café website that handles orders, customer registration, product
 ## Built With
 Framework: Laravel
 ## Installation
-To run this project locally, you will need to have Composer installed.
+To run this project locally, you will need to have [Composer](https://getcomposer.org/) installed.
 
 Steps:
 1.Clone the Repository
