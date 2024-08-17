@@ -42,3 +42,9 @@ Start the local development server:
 ```bash
    php artisan serve
 ```
+
+
+## Default Admin Login
+
+email   :admin@example.com <br>
+password:password123
