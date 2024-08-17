@@ -1,9 +1,9 @@
 # Coffee Website
 A full-fledged Café website that handles orders, customer registration, product management, and transactions.
 
-Built With
+## Built With
 Framework: Laravel
-Installation
+## Installation
 To run this project locally, you will need to have Composer installed.
 
 Steps:
