@@ -32,8 +32,8 @@
                     <div>
                         <label for="categoryManage">Category:</label>
                         <select id="categoryManage" name="categoryManage" required>
-                            <option value="latte" {{$prod->productCategory == 'drink' ? 'selected' : ''}}>Latte</option>
-                            <option value="coffee" {{$prod->productCategory == 'desert' ? 'selected' : ''}}>Coffee</option>
+                            <option value="drink" {{$prod->productCategory == 'drink' ? 'selected' : ''}}>Drink</option>
+                            <option value="dessert" {{$prod->productCategory == 'dessert' ? 'selected' : ''}}>Dessert</option>
                         </select>
                     </div>
 
